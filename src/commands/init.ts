@@ -97,5 +97,12 @@ export default function init(context: vscode.ExtensionContext) {
     true
   );
 
+  // 创建 connect 命令
+  commandManager.createCommand(
+    constants.COMMAND_CONNECT,
+    'connect',
+    actions.connect
+  );
+
   commandManager.registerAll(context);
 }

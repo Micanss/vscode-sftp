@@ -4,7 +4,7 @@ import * as path from 'path';
 import * as Joi from 'joi';
 import reportError from '../helper/reportError';
 import Trie from '../core/Trie';
-import { showTextDocument } from '../host';
+import { showTextDocument, showWarningMessage } from '../host';
 import logger from '../logger';
 
 const configTrie = new Trie(
@@ -57,6 +57,8 @@ const configScheme = {
     autoDelete: Joi.boolean().optional(),
   },
   concurrency: Joi.number().integer(),
+  sylName: Joi.string().required(),
+  sylPwd: Joi.string().required(),
 };
 
 const defaultConfig = {
@@ -80,7 +82,7 @@ const defaultConfig = {
   passive: false,
 
   // default to login dir
-  remotePath: './',
+  remotePath: './home/shiyanlou/Code',
   uploadOnSave: false,
   downloadOnOpen: false,
   syncMode: 'update',
@@ -91,6 +93,8 @@ const defaultConfig = {
     autoDelete: false,
   },
   concurrency: 4,
+  sylName: '',
+  sylPwd: '',
 };
 
 function normalizeTriePath(pathname) {
@@ -204,6 +208,8 @@ export function newConfig(basePath) {
             host: defaultConfig.host,
             username: defaultConfig.username,
             remotePath: defaultConfig.remotePath,
+            sylName: defaultConfig.sylName,
+            sylPwd: defaultConfig.sylPwd,
           },
           { spaces: 4 }
         )

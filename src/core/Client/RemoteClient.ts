@@ -1,8 +1,8 @@
 export interface IClientOption {
-  host: string;
-  port: number;
-  username: string;
-  password: string;
+  host?: string;
+  port?: number;
+  username?: string;
+  password?: string;
   privateKeyPath?: string; // ssh-only
   passphrase?: string; // ssh-only
   interactiveAuth?: boolean; // ssh-only
@@ -10,6 +10,8 @@ export interface IClientOption {
   secure?: any; // ftp-only
   secureOptions?: object; // ftp-only
   passive?: boolean; // ftp-only
+  sylUserNameA?: string;
+  sylPwd?: string;
 }
 
 export default abstract class RemoteClient {

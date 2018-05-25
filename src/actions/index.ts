@@ -3,6 +3,7 @@ import { editConfig } from './config';
 import { sync2Local, sync2Remote } from './sync';
 import { removeRemote } from './remove';
 import { diff } from './diff';
+import { connect } from './connect';
 
 export {
   diff,
@@ -13,4 +14,5 @@ export {
   sync2Remote,
   removeRemote,
   editConfig,
+  connect,
 };

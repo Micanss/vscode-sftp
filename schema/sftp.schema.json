@@ -16,6 +16,8 @@
     "ignore": {},
     "watcher": {},
     "concurrency": {},
+    "sylName": {},
+    "sylPwd": {},
 
     "protocol": {
       "enum": ["sftp"],
